@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useRouteMatch } from 'react-router-dom'
 
 const MovieList = props => {
   return (
@@ -12,9 +13,13 @@ const MovieList = props => {
 
 function MovieDetails({ movie }) {
   const { title, director, metascore, stars } = movie;
+  // const { url } = useRouteMatch()
+  // console.log("this is the url", url);
   return (
     <div className="movie-card">
-      <h2>{title}</h2>
+    <Link to={`/movies/${movie.id}`}>
+        <h2>{title}</h2>
+    </Link>  
       <div className="movie-director">
         Director: <em>{director}</em>
       </div>
